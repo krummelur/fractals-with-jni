@@ -14,3 +14,19 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+task buildLibraries (type: Exec){
+    commandLine "buildLibraries.bat"
+}
+
+task copyX64Library (type: Copy) {
+        from 'libsource/fractalrenderlib/x64/Debug/mandelbrotlib.dll'
+        into "lib/x64"
+}
+
+task copyX86Library (type: Copy) {
+        from 'libsource/fractalrenderlib/Debug/mandelbrotlib.dll'
+        into "lib/x86"
+}
+
+task buildDependencies (dependsOn: [clean, buildLibraries, copyX86Library, copyX64Library])

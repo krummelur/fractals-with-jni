@@ -1,6 +1,9 @@
 #Output images
 *.png
 
+#libraries
+/lib/*
+
 #native log files
 *.log
 

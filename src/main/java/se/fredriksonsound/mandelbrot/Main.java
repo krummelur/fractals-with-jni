@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class Main {
-    private static final int imageWidth = 2000;
-    private static final int imageHeight = 2000;
+    private static final int imageWidth = 100;
+    private static final int imageHeight = 100;
     private static final double distanceToSearch = 1;
     private static final double fixPointX = 0;
     private static final double fixPointY = 0;
