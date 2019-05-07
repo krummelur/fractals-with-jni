@@ -1,0 +1,3 @@
+[submodule "libsource/fractalrenderlib"]
+	path = libsource/fractalrenderlib
+	url = git@github.com:krummelur/fractalrenderlib
