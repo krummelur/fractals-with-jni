@@ -1,5 +1,5 @@
 #Output images
-*.png
+/img/*
 
 #libraries
 /lib/*

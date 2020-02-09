@@ -35,6 +35,7 @@ public class LibraryUtil {
 
     public static void loadDLL(String library) {
         setLibraryPath();
+        System.out.println("PATH: " + System.getProperty("java.library.path") + library);
         System.load(System.getProperty("java.library.path") + library);
     }
 

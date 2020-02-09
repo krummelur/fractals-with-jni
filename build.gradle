@@ -24,9 +24,23 @@ task copyX64Library (type: Copy) {
         into "lib/x64"
 }
 
+
+
 task copyX86Library (type: Copy) {
-        from 'libsource/fractalrenderlib/Debug/mandelbrotlib.dll'
-        into "lib/x86"
+    from 'libsource/fractalrenderlib/Debug/mandelbrotlib.dll'
+    into "lib/x86"
 }
 
-task buildDependencies (dependsOn: [clean, buildLibraries, copyX86Library, copyX64Library])
+task cleanNativeBuildOutput (type: Delete) {
+    delete  'libsource/fractalrenderlib/Debug',
+            'libsource/fractalrenderlib/x64',
+            'libsource/fractalrenderlib/fractalrenderlib/Debug',
+            'libsource/fractalrenderlib/fractalrenderlib/x64',
+            'lib'
+}
+
+task copyLibraries  (dependsOn: [copyX86Library, copyX64Library])
+task buildDependencies (dependsOn: [clean, cleanNativeBuildOutput, buildLibraries, copyLibraries])
+
+copyLibraries.mustRunAfter(buildLibraries)
+buildLibraries.mustRunAfter(cleanNativeBuildOutput)
